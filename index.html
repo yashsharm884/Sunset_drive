@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Sunset Drive</title>
+  </head>
+  <body>
+    <!-- <script src="projection.js"></script> -->
+    <script src="./lib/jquery-2.1.1.js"></script>
+    <script src="./lib/util.js"></script>
+    <script src="./lib/game.js"></script>
+    <link href="./lib/styling.css" rel="stylesheet" type="text/css" />
+
+
+      <script src="https://kit.fontawesome.com/8f9deffd29.js"></script>
+
+
+    <div id="Instructions">
+      <h1>Game Instructions:</h1>
+      <p>Press the arrow keys to drive.</p>
+      <p><b>Avoid red and black squares</b>: running over
+      red squares will slow you significantly and running over black squares will
+      cause you to lose immediately.</p>
+      <p>However, try to run over the green squares
+      for a little speed boost!</p>
+      <p>Try to cross the finish line in the least time
+      possible. Can you beat your friends?</p>
+
+      <button id="reset">
+        Restart
+      </button>
+    </div>
+    <canvas></canvas>
+
+    <script>
+      var canvasEl = document.getElementsByTagName("canvas")[0];
+      var context = canvasEl.getContext("2d");
+      canvasEl.height = (window.innerHeight - 10) / 1.2;
+      canvasEl.width = (window.innerWidth - 10) / 2;
+
+      function restart() {
+        var newGame = new Racer.Game(context, canvasEl.width, canvasEl.height);
+        newGame.run();
+        $(document).on('keydown', newGame.keyPressed.bind(newGame));
+        $(document).on('keyup',  newGame.keyUnpressed.bind(newGame));
+      };
+      restart();
+      $('#reset').on('click', restart);
+
+    </script>
+
+
+
+
+<h1>About Us</h1>
+<i><br><br>
+26th June 2019,</i> <p>This Site is made by Mr. Yash Sharma on the 26th june 2019. This Site is now under building and I hope that I would complete it earlier.</p>
+
+<br> <br>
+
+<img src="images/img2.jpg" alt="yashsharmabharatur" width="170px" height="200 px" caption="yashsharmabharatur"> <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://yashsharmabharatpur.blogspot.com/"><b>Yash Sharma</b>
+  <br>  <br> <br>
+
+
+
+<footer id="footer">
+<div class="container">
+<p class="mt-3" style="font-size: 30px">
+<a style="color:blue" target='_blank' href="https://github.com/"><i class="fab fa-github mr-3"></i></a>
+<a style="color:blue" target='_blank' href="https://www.linkedin.com/"><i class="fab fa-linkedin mr-3"></i></a>
+<a style="color:blue" target='_blank' href="https://www.instagram.com/"><i class="fab fa-instagram mr-3"></i></a>
+<a style="color:blue" target='_blank' href="https://www.facebook.com"><i class="fab fa-facebook mr-3"></i></a>
+</p>
+<p style="font-size: 13px;">&copy; 2019 |
+Design By  </b><a style="color:green;"><b>Yash Sharma</b></a>
+</p>
+
+
+
+
+
+
+
+  </body>
+</html>
